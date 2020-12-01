@@ -1,0 +1,101 @@
+<div data-ng-controller="loginController">
+    <div class="red-row" >
+      <div class="container">
+        <nav class="navbar navbar navbar-static-top">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">WareCloud</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav pull-right">
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav pull-right">
+                      <li class = "navigation-top">
+                        <a routerLink = "/home">Обратно</a>
+                      </li>
+                    </ul>
+                  </div>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <div class="clear60"></div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-lg-offset-4" data-ng-module="userStatus">
+          <form name="form" [formGroup]="form" autocomplete="off" submitted="submitted" submit="submit()" >
+            <div class="panel panel-default box-shadow">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  Добре дошли
+                </h3>
+              </div>
+              <div class="panel-body" data-ng-switch on="userStatus.statusLogin">
+                <div data-ng-switch-default>
+                  <p class="text-center pv">Моля въведете потребителското ви име и парола</p>
+                  <div class="form-group has-feedback" >
+                    <input formControlName = "email"
+                      type="email"
+                      class="form-control loginEmail"
+                      id="email"
+                      name="email"
+                      placeholder="Имейл"
+                      ng-model="email"
+                      ng-model-options="{updateOn: 'blur'}"
+                      required>
+
+
+                      <div *ngIf = "form.get('email').touched && form.get('email').errors?.required" class = "error">
+                        Имейлът е задължителен
+                      </div>
+                      <div *ngIf="form.get('email').touched && form.get('email').errors?.minlength" class="error">
+                          Имейлът трябва да е по-дълъг от 6 символа
+                      </div>
+                       <div *ngIf="form.get('email').touched && form.get('email').errors?.maxlength" class="error">
+                        Имейлът не може да надвишава 50 символа
+                       </div>
+                       <div *ngIf="form.get('email').touched && form.get('email').errors?.email" class="error">
+                        Моля въведете валиден имейл.
+                       </div>
+                  </div>
+                </div>
+                <div class="form-group has-feedback">
+                  <input formControlName = "password"
+                    type="password"
+                    class="form-control loginPassword"
+                    id="password"
+                    name="password"
+                    placeholder="Парола"
+                    ng-model="password"
+                    required>
+
+                    <div *ngIf = "form.get('password').touched && form.get('password').errors?.required" class = "error">
+                        Паролата е задължителена
+                      </div>
+                      <div *ngIf="form.get('password').touched && form.get('password').errors?.minlength" class="error">
+                          Паролата трябва да е по-дълъга от 6 символа
+                      </div>
+                       <div *ngIf="form.get('password').touched && form.get('password').errors?.maxlength" class="error">
+                        Паролата не може да надвишава 50 символа
+                       </div>
+                      
+                </div>
+                <div class="clear20"></div>
+                <a routerLink ="/dashboard" class="btn btn-default btn-block">Вход</a>
+                <div class="clear20"></div>
+              </div>
+            </div>
+          </form>
+        </div>  
+      </div>
+    </div>
+    <div class="clear40"></div>
+</div>

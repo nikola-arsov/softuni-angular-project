@@ -1,0 +1,142 @@
+
+    <div class="red-row">
+      <div class="container">
+
+        <nav class="navbar navbar navbar-static-top">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">WareCloud</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav pull-right">
+                <li class = "navigation-top">
+                    <a routerLink = "/home">Начало</a>
+                    <a routerLink = "/pricing">Цени</a>
+                    <a routerLink = "/contacts">Контакти</a>
+                </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Plans
+    ================================================== -->
+
+    <div class="clear60"></div>
+
+    <div class="container">
+        <div class="row pricing">
+            <div class="col-xs-12 col-md-3" *ngFor ="let item of data">
+                <div class="panel {{ item.style }}">
+                    <div class="cnrflash">
+                        <div class="cnrflash-inner">
+                            <span class="cnrflash-label">НАЙ
+                                <br>
+                                ПРЕДПОЧИТАН</span>
+                        </div>
+                    </div>
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            {{ item.row1 }}</h3>
+                    </div>
+                    <div class="panel-body" > 
+                        <div class="the-price">
+                            <h1>{{ item.row2 }},<em>00</em>лв</h1><small>на месец</small>
+                        </div>
+                        <table class="table"> 
+                            <tr> 
+                                <td >
+                                    {{ item.row3 }}
+                                </td>
+                            </tr>
+                            <tr class="active">
+                                <td>
+                                    {{ item.row4 }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ item.row5 }}
+                                </td>
+                            </tr>
+                            <tr class="active">
+                                <td>
+                                    {{ item.row6 }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ item.row7 }}
+                                </td>
+                            </tr>
+                            <tr class="active">
+                                <td>
+                                    {{ item.row8 }}
+                                </td>
+                            </tr>
+                            <tr><td></td></tr>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+                        <button class ="btn btn-info" (click) = "plansFill(item.id)" >Стартирай сега</button>
+                    </div>
+                </div>
+            </div>
+        </div>      
+           
+        <div class="row pricing">
+            <div class="col-lg-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Закупувайки склад получавате още</h3>
+                    </div>
+                    <div class="panel-body">
+                        <h1>
+                               CRM</h1>
+                            <small>за управление на вашите клиенти</small>
+                            <div class="clear20"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clear60"></div>
+
+    <div class="pricing-row">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 start-now">
+            <h2>Имате въпроси?</h2>
+            <P>Когато искате да подобрите бизнеса ви, използвайки софтуер обслужващ ежедневните ви операции могат да изникнат много въпроси. Ако искате да ни ги зададете винаги може да се свържете с нас, за да поговорим за бизнесът ви и как нашият софтуер ще организира вашия склад по един бърз и удобен начин. Също така сме готови да поговорим за интегриране с други софтуерни системи, вашия електронен магазин и всякакви други въпроси. Нашите високо квалифицирани специалисти имат отговор.</P>
+            <a class="btn btn-default btn-lg" href="#" role="button">Свържете се с нас</a>
+            <div class="clear10"></div>
+            <span class="help-text">Ние сме на разположение 24/7</span>
+          </div><!-- /.col-lg-12 -->
+          <div class="col-lg-4">
+            <img src="../../assets/img/support.jpg" alt="Warehouse in a nice order">
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </div><!-- /.start-now -->
+
+    <div class="clear40"></div>
+
+  
+<div style="background-color: #fff;">
+      <!-- FOOTER -->
+      <div class="container">
+        <footer>
+          <p>© 2020 Right Click ltd. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+        </footer>
+      </div>
+</div>
+
+
