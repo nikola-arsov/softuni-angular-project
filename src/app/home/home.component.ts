@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {NavigationEnd, Router} from '@angular/router';
 
 
 @Component({
@@ -9,10 +9,9 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(router: Router) { }
+  constructor(router: Router) {
+  }
 
-  
-      
 
   ngOnInit(): void {
   }

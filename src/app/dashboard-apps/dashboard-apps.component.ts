@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-apps',
@@ -8,72 +8,71 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DashboardAppsComponent implements OnInit {
 
-  data:Array<any>;
-  id:number;
+  data: Array<any>;
+  id: number;
 
-  constructor(private route:ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) {
+  }
 
-  
 
-
-  appsFill(){
-    this.data =[
+  appsFill() {
+    this.data = [
       {
-        id: 1, 
-        name:'Компания 1', 
+        id: 1,
+        name: 'Компания 1',
         apps:
           [
             {
               id: 1,
-              name: 'Склад', 
-              expire:'12/07/2015', 
-              start:'12/07/2014', 
-              users:'5/10', 
-              sales:'176/200', 
-              products:'81/100',
+              name: 'Склад',
+              expire: '12/07/2015',
+              start: '12/07/2014',
+              users: '5/10',
+              sales: '176/200',
+              products: '81/100',
             },
             {
-              id: 2, 
-              name: 'CRM', 
-              expire:'12/07/2015', 
-              start:'12/07/2014', 
-              users:'5/10', 
-              sales:'176/200', 
-              products:'81/100',
+              id: 2,
+              name: 'CRM',
+              expire: '12/07/2015',
+              start: '12/07/2014',
+              users: '5/10',
+              sales: '176/200',
+              products: '81/100',
             },
             {
-              id: 3, 
+              id: 3,
               name: 'ERP',
-              expire:'12/07/2015', 
-              start:'12/07/2014', 
-              users:'5/10', 
-              sales:'176/200', 
-              products:'81/100', 
+              expire: '12/07/2015',
+              start: '12/07/2014',
+              users: '5/10',
+              sales: '176/200',
+              products: '81/100',
             }
           ]
       },
       {
-        id: 2, 
-        name:'Компания 2', 
+        id: 2,
+        name: 'Компания 2',
         apps:
           [
             {
-              id: 1, 
+              id: 1,
               name: 'Склад',
-              expire:'12/07/2015', 
-              start:'12/07/2014', 
-              users:'5/10', 
-              sales:'176/200', 
-              products:'81/100', 
+              expire: '12/07/2015',
+              start: '12/07/2014',
+              users: '5/10',
+              sales: '176/200',
+              products: '81/100',
             },
             {
-              id: 2, 
+              id: 2,
               name: 'CRM',
-              expire:'12/07/2015', 
-              start:'12/07/2014', 
-              users:'5/10', 
-              sales:'176/200', 
-              products:'81/100', 
+              expire: '12/07/2015',
+              start: '12/07/2014',
+              users: '5/10',
+              sales: '176/200',
+              products: '81/100',
             }
           ]
       }

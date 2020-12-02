@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Routes, RouterModule, RouterLink, Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Routes, RouterModule, RouterLink, Router} from '@angular/router';
 
 
 @Component({
@@ -11,7 +11,8 @@ export class DashboardComponent implements OnInit {
 
   data: Array<any>;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+  }
 
 
   companyFill() {
@@ -40,8 +41,8 @@ export class DashboardComponent implements OnInit {
     ];
   }
 
-  appsFill(id:number){
-    this.router.navigate(['/dashboard',id]);
+  appsFill(id: number) {
+    this.router.navigate(['/dashboard', id]);
   }
 
 

@@ -1,261 +1,259 @@
+<div id="wrapper" class="active">
 
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+    <ul id="sidebar_menu" class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a><img src="../../assets/img/google-logo.png"></a>
+      </li>
+    </ul>
+    <ul class="sidebar-nav" id="sidebar">
+      <li id="hide-left-column">
+        <a id="menu-toggle" href="#">
+          <span class="sidebar-link-text">Hide the Menu</span>
+          <span class="sidebar-link-icon pull-right"><i class="fa fa-bars"></i></span>
+        </a>
+      </li>
+    </ul>
+  </div>
 
-
-    <div id="wrapper" class="active">    
-
-      <!-- Sidebar -->
-      <div id="sidebar-wrapper">
-        <ul id="sidebar_menu" class="sidebar-nav">
-           <li class="sidebar-brand">
-              <a><img src="../../assets/img/google-logo.png"></a>
-            </li>
-        </ul>
-        <ul class="sidebar-nav" id="sidebar">     
-          <li id="hide-left-column">
-            <a id="menu-toggle" href="#">
-              <span class="sidebar-link-text">Hide the Menu</span>
-              <span class="sidebar-link-icon pull-right"><i class="fa fa-bars"></i></span>
-            </a>
-          </li>
-        </ul>
-      </div>  
-          
-      <!-- Page content -->
-      <div id="page-content-wrapper">
-        <!-- Keep all page content within the page-content inset div! -->
-        <div class="page-content inset">
-          <div class="blue-green-header">
-            <div class="container-fluid">
-              <div class="row">
-                <nav class="navbar navbar navbar-static-top col-lg-12">
-                  <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                    </button>
-                  </div>
-                  <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                      <li class="dropdown" data-toggle="tooltip" data-placement="left" title="Настройки">
-                        <a aria-expanded="false" role="button" data-toggle="dropdown" class="dropdown-toggle" href=""><i class="fa fa-cog"></i></a>
-                        <ul role="menu" class="dropdown-menu">
-                          <li><a href="#">Action</a></li>
-                          <li><a href="#">Another action</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">Изход</a></li>
-                        </ul>
-                      </li>
-                      <li data-toggle="tooltip" data-placement="left" title="Свържете се с нас"><a href=""><i class="fa fa-question"></i></a></li>
+  <!-- Page content -->
+  <div id="page-content-wrapper">
+    <!-- Keep all page content within the page-content inset div! -->
+    <div class="page-content inset">
+      <div class="blue-green-header">
+        <div class="container-fluid">
+          <div class="row">
+            <nav class="navbar navbar navbar-static-top col-lg-12">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
+              <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                  <li class="dropdown" data-toggle="tooltip" data-placement="left" title="Настройки">
+                    <a aria-expanded="false" role="button" data-toggle="dropdown" class="dropdown-toggle" href=""><i
+                      class="fa fa-cog"></i></a>
+                    <ul role="menu" class="dropdown-menu">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">Изход</a></li>
                     </ul>
-                  </div>
-                </nav>
+                  </li>
+                  <li data-toggle="tooltip" data-placement="left" title="Свържете се с нас"><a href=""><i
+                    class="fa fa-question"></i></a></li>
+                </ul>
               </div>
-            </div>
+            </nav>
           </div>
-
-          <div class="clear40"></div>
-
-          <div class="row">
-              <div class="col-md-12">
-                <h3>Добавяне<small> на нова компания</small></h3>  
-              </div>
-          </div>
-          <div class="clear20"></div>
-          <div class="row">
-            <div class="col-lg-6 col-lg-offset-3">
-              <form [formGroup]="form" (ngSubmit)="registerCompanyHandler()">
-                <div class="form-group has-feedback">
-                  <label class="control-label" for = "name">Име на компанията:</label>
-                  <input formControlName = "name" 
-                      type="text" 
-                      placeholder="Име на компанията"
-                      name="cName" 
-                      id = "name"
-                  />
-                  
-                     <div *ngIf = "form.get('name').touched && form.get('name').errors?.required" class = "error">
-                      Името е задължително.
-                     </div>
-                     <div *ngIf="form.get('name').touched && form.get('name').errors?.minlength || form.get('name').errors?.maxlength" class="error">
-                       Името трябва да е по-дълго от 3 символа. Името не може да надвишава 50 символа.
-                    </div>
-                  
-                </div> <!-- end .form-group -->
-
-                <div class="form-group has-feedback">
-                  <label class="control-label" for = "EIK">ЕИК:</label>
-                  <input formControlName = "EIK"
-                      type="text" 
-                      placeholder="ЕИК"
-                      name="cEIK" 
-                      id = "EIK"
-                  />
-
-
-                  <div *ngIf = "form.get('EIK').touched && form.get('EIK').errors?.required" class = "error">
-                    ЕИК е задължителен.
-                   </div>
-                   <div *ngIf="form.get('EIK').touched && form.get('EIK').errors?.minlength" class="error">
-                    ЕИК трябва да е по-дълъг от 6 символа.
-                  </div>
-                  <div *ngIf="form.get('EIK').touched && form.get('EIK').errors?.maxlength" class="error">
-                    ЕИК не може да надвишава 15 символа.
-                  </div>
-                </div> <!-- end .form-group -->
-
-                
-
-                <div class="form-group has-feedback scale-fade">
-                  <label class="control-label" for = "DDS">ДДС номер:</label>
-                  <input formControlName = "DDS" 
-                      type="text" 
-                      placeholder="ДДС номер"
-                      name="cDDS"
-                      id = "DDS" 
-                  />
-
-                  <div *ngIf = "form.get('DDS').touched && form.get('DDS').errors?.required" class = "error">
-                   ДДС е задължителен.
-                   </div>
-                   <div *ngIf="form.get('DDS').touched && form.get('DDS').errors?.minlength" class="error">
-                    ДДС номер трябва да е по-дълъг от 6 символа.
-                  </div>
-                  <div *ngIf="form.get('DDS').touched && form.get('DDS').errors?.maxlength" class="error">
-                    ДДС номер не може да надвишава 15 символа.
-                  </div>
-                 </div> 
-                 <!-- end .form-group -->
-
-                <div class="form-group has-feedback">
-                  <label class="control-label" for = "city">Град:</label>
-                  <input  formControlName = "city"
-                      type="text" 
-                      placeholder="Град"
-                      name="cCity" 
-                      id = "city"
-                  />
-
-                  <div *ngIf = "form.get('city').touched && form.get('city').errors?.required" class = "error">
-                    Градът е задължителен.
-                    </div>
-                    <div *ngIf="form.get('city').touched && form.get('city').errors?.minlength" class="error">
-                     Моля въведете валиден град.
-                   </div>
-                   <div *ngIf="form.get('city').touched && form.get('city').errors?.maxlength" class="error">
-                    Моля въведете валиден град.
-                   </div>
-                </div> 
-                <!-- end .form-group -->
-
-                <div class="form-group has-feedback">
-                  <label class="control-label" for = "address">Адрес по регистрация:</label>
-                  <input formControlName = "address"
-                      type="text" 
-                      placeholder="Адрес"
-                      name="cAddress" 
-                      id = "address"
-                  />
-
-                  <div *ngIf = "form.get('address').touched && form.get('address').errors?.required" class = "error">
-                    Адрес е задължителен.
-                    </div>
-                    <div *ngIf="form.get('address').touched && form.get('address').errors?.minlength" class="error">
-                      Моля въведете валиден адрес.
-                   </div>
-                   </div> <!-- end .form-group -->
-
-                <div class="form-group has-feedback">
-                  <label class="control-label" for = "MOL">МОЛ:</label>
-                  <input  formControlName = "MOL"
-                      type="text" 
-                      placeholder="МОЛ"
-                      name="cMOL" 
-                      id = "MOL"
-                  />
-
-                  <div *ngIf = "form.get('MOL').touched && form.get('MOL').errors?.required" class = "error">
-                    МОЛ е задължително.
-                    </div>
-                    <div *ngIf="form.get('MOL').touched && form.get('MOL').errors?.minlength" class="error">
-                      МОЛ трябва да е по-дълго от 3 символа.
-                   </div>
-                   <div *ngIf="form.get('MOL').touched && form.get('MOL').errors?.maxlength" class="error">
-                    МОЛ не може да надвишава 50 символа.
-                   </div>
-                </div> <!-- end .form-group -->
-
-                <div class="form-group has-feedback">
-                  <label class="control-label" for = "email">Имейл адрес:</label>
-                  <input  formControlName = "email"
-                      type="email" 
-                      placeholder="Имейл адрес"
-                      name="cEmail" 
-                      id = "email"
-                  />
-
-                  <div *ngIf = "form.get('email').touched && form.get('email').errors?.required" class = "error">
-                    Имейлът е задължителен
-                    </div>
-                    <div *ngIf="form.get('email').touched && form.get('email').errors?.minlength" class="error">
-                      Имейлът трябва да е по-дълъг от 6 символа
-                   </div>
-                   <div *ngIf="form.get('email').touched && form.get('email').errors?.maxlength" class="error">
-                    Имейлът не може да надвишава 50 символа
-                   </div>
-
-                </div><!-- end .form-group -->
-
-                <!-- <div class="form-group has-feedback">
-                  <label class="control-label">Лого:</label>
-                  <input 
-                      type="file" 
-                      ng-model="company.logo" 
-                      name="cLogo" 
-                  />
-                  <div class="error-container scale-fade" 
-                       ng-show="form.$submitted && form.cLogo.$invalid || form.cLogo.$touched && form.cLogo.$invalid">
-                  </div>
-                  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"
-                      ng-show="form.cLogo.$touched && form.cLogo.$valid">
-                  </span>
-                  <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"
-                      ng-show="form.$submitted && form.cLogo.$invalid || form.cLogo.$touched && form.cLogo.$invalid" >
-                  </span>
-                </div>end .form-group -->
-
-
-                  
-                  
-                  
-                  <input type="submit" ng-click="update(company)" value="Save" class="btn btn-default btn-lg pull-right" />
-                 <!--  <input type="button" ng-click="reset(form)" value="Reset" class="btn btn-info" /> -->
-                </form>
-            </div>
-         </div>
-
-        <div class="clear60"></div>
-        <!-- {{company}} -->
-
-        
         </div>
       </div>
 
-    </div> <!-- END WRAPPER-->
- 
+      <div class="clear40"></div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h3>Добавяне<small> на нова компания</small></h3>
+        </div>
+      </div>
+      <div class="clear20"></div>
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+          <form [formGroup]="form" (ngSubmit)="registerCompanyHandler()">
+            <div class="form-group has-feedback">
+              <label class="control-label" for="name">Име на компанията:</label>
+              <input formControlName="name"
+                     type="text"
+                     placeholder="Име на компанията"
+                     name="cName"
+                     id="name"
+              />
+
+              <div *ngIf="form.get('name').touched && form.get('name').errors?.required" class="error">
+                Името е задължително.
+              </div>
+              <div
+                *ngIf="form.get('name').touched && form.get('name').errors?.minlength || form.get('name').errors?.maxlength"
+                class="error">
+                Името трябва да е по-дълго от 3 символа. Името не може да надвишава 50 символа.
+              </div>
+
+            </div> <!-- end .form-group -->
+
+            <div class="form-group has-feedback">
+              <label class="control-label" for="EIK">ЕИК:</label>
+              <input formControlName="EIK"
+                     type="text"
+                     placeholder="ЕИК"
+                     name="cEIK"
+                     id="EIK"
+              />
+
+
+              <div *ngIf="form.get('EIK').touched && form.get('EIK').errors?.required" class="error">
+                ЕИК е задължителен.
+              </div>
+              <div *ngIf="form.get('EIK').touched && form.get('EIK').errors?.minlength" class="error">
+                ЕИК трябва да е по-дълъг от 6 символа.
+              </div>
+              <div *ngIf="form.get('EIK').touched && form.get('EIK').errors?.maxlength" class="error">
+                ЕИК не може да надвишава 15 символа.
+              </div>
+            </div> <!-- end .form-group -->
+
+
+            <div class="form-group has-feedback scale-fade">
+              <label class="control-label" for="DDS">ДДС номер:</label>
+              <input formControlName="DDS"
+                     type="text"
+                     placeholder="ДДС номер"
+                     name="cDDS"
+                     id="DDS"
+              />
+
+              <div *ngIf="form.get('DDS').touched && form.get('DDS').errors?.required" class="error">
+                ДДС е задължителен.
+              </div>
+              <div *ngIf="form.get('DDS').touched && form.get('DDS').errors?.minlength" class="error">
+                ДДС номер трябва да е по-дълъг от 6 символа.
+              </div>
+              <div *ngIf="form.get('DDS').touched && form.get('DDS').errors?.maxlength" class="error">
+                ДДС номер не може да надвишава 15 символа.
+              </div>
+            </div>
+            <!-- end .form-group -->
+
+            <div class="form-group has-feedback">
+              <label class="control-label" for="city">Град:</label>
+              <input formControlName="city"
+                     type="text"
+                     placeholder="Град"
+                     name="cCity"
+                     id="city"
+              />
+
+              <div *ngIf="form.get('city').touched && form.get('city').errors?.required" class="error">
+                Градът е задължителен.
+              </div>
+              <div *ngIf="form.get('city').touched && form.get('city').errors?.minlength" class="error">
+                Моля въведете валиден град.
+              </div>
+              <div *ngIf="form.get('city').touched && form.get('city').errors?.maxlength" class="error">
+                Моля въведете валиден град.
+              </div>
+            </div>
+            <!-- end .form-group -->
+
+            <div class="form-group has-feedback">
+              <label class="control-label" for="address">Адрес по регистрация:</label>
+              <input formControlName="address"
+                     type="text"
+                     placeholder="Адрес"
+                     name="cAddress"
+                     id="address"
+              />
+
+              <div *ngIf="form.get('address').touched && form.get('address').errors?.required" class="error">
+                Адрес е задължителен.
+              </div>
+              <div *ngIf="form.get('address').touched && form.get('address').errors?.minlength" class="error">
+                Моля въведете валиден адрес.
+              </div>
+            </div> <!-- end .form-group -->
+
+            <div class="form-group has-feedback">
+              <label class="control-label" for="MOL">МОЛ:</label>
+              <input formControlName="MOL"
+                     type="text"
+                     placeholder="МОЛ"
+                     name="cMOL"
+                     id="MOL"
+              />
+
+              <div *ngIf="form.get('MOL').touched && form.get('MOL').errors?.required" class="error">
+                МОЛ е задължително.
+              </div>
+              <div *ngIf="form.get('MOL').touched && form.get('MOL').errors?.minlength" class="error">
+                МОЛ трябва да е по-дълго от 3 символа.
+              </div>
+              <div *ngIf="form.get('MOL').touched && form.get('MOL').errors?.maxlength" class="error">
+                МОЛ не може да надвишава 50 символа.
+              </div>
+            </div> <!-- end .form-group -->
+
+            <div class="form-group has-feedback">
+              <label class="control-label" for="email">Имейл адрес:</label>
+              <input formControlName="email"
+                     type="email"
+                     placeholder="Имейл адрес"
+                     name="cEmail"
+                     id="email"
+              />
+
+              <div *ngIf="form.get('email').touched && form.get('email').errors?.required" class="error">
+                Имейлът е задължителен
+              </div>
+              <div *ngIf="form.get('email').touched && form.get('email').errors?.minlength" class="error">
+                Имейлът трябва да е по-дълъг от 6 символа
+              </div>
+              <div *ngIf="form.get('email').touched && form.get('email').errors?.maxlength" class="error">
+                Имейлът не може да надвишава 50 символа
+              </div>
+
+            </div><!-- end .form-group -->
+
+            <!-- <div class="form-group has-feedback">
+              <label class="control-label">Лого:</label>
+              <input
+                  type="file"
+                  ng-model="company.logo"
+                  name="cLogo"
+              />
+              <div class="error-container scale-fade"
+                   ng-show="form.$submitted && form.cLogo.$invalid || form.cLogo.$touched && form.cLogo.$invalid">
+              </div>
+              <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"
+                  ng-show="form.cLogo.$touched && form.cLogo.$valid">
+              </span>
+              <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"
+                  ng-show="form.$submitted && form.cLogo.$invalid || form.cLogo.$touched && form.cLogo.$invalid" >
+              </span>
+            </div>end .form-group -->
+
+
+            <input type="submit" ng-click="update(company)" value="Save" class="btn btn-default btn-lg pull-right"/>
+            <!--  <input type="button" ng-click="reset(form)" value="Reset" class="btn btn-info" /> -->
+          </form>
+        </div>
+      </div>
+
+      <div class="clear60"></div>
+      <!-- {{company}} -->
+
+
+    </div>
+  </div>
+
+</div> <!-- END WRAPPER-->
+
 <script type="text/javascript">
-    $(document).ready(function() {
-      $("#menu-toggle").click(function(e) {
-              e.preventDefault();
-              console.log('default');
-              $("#wrapper").toggleClass("active");
-      });
-      $(".dropdown-toggle").click(function(e) {
-              e.preventDefault();
-              $("#navbar > ul > li.dropdown").toggleClass("open");
-      });
+  $(document).ready(function () {
+    $("#menu-toggle").click(function (e) {
+      e.preventDefault();
+      console.log('default');
+      $("#wrapper").toggleClass("active");
     });
+    $(".dropdown-toggle").click(function (e) {
+      e.preventDefault();
+      $("#navbar > ul > li.dropdown").toggleClass("open");
+    });
+  });
 </script>
 
 

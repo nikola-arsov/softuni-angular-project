@@ -6,11 +6,11 @@ input.ng-valid.ng-touched {
   border: 1px solid green;
 }
 
-input.ng-invalid.ng-touched + .error-container + span.glyphicon  + span.glyphicon  {
-    color: red;
+input.ng-invalid.ng-touched + .error-container + span.glyphicon + span.glyphicon {
+  color: red;
 }
 
-input.ng-invalid.ng-touched + .error-container + span.glyphicon  {
-    color: green;
+input.ng-invalid.ng-touched + .error-container + span.glyphicon {
+  color: green;
 }
 
