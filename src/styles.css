@@ -8028,6 +8028,13 @@ body {
   background-color: #fff;
 }
 
+.contacts-main{
+  background-color: #681436;
+}
+.contacts{
+  color: #fff;
+}
+
 input,
 button,
 select,

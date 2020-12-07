@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Routes, RouterModule, RouterLink, Router} from '@angular/router';
+import {Router} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
+
 
 
 @Component({
@@ -9,37 +11,12 @@ import {Routes, RouterModule, RouterLink, Router} from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  data: Array<any>;
+  
+  data:any;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private http: HttpClient) {
   }
 
-
-  companyFill() {
-    this.data = [
-      {
-        id: 1,
-        name: 'Right Click',
-        picture: '../../assets/img/bg-close-person-hi.png',
-        phone: '0877 125 425',
-        mail: 'info@rightclick.bg',
-      },
-      {
-        id: 2,
-        name: 'Long Life',
-        picture: '../../assets/img/bg-close-person-hi.png',
-        phone: '0877 125 425',
-        mail: 'info@rightclick.bg',
-      },
-      {
-        id: 3,
-        name: 'Alfa Vita',
-        picture: '../../assets/img/bg-close-person-hi.png',
-        phone: '0877 125 425',
-        mail: 'info@rightclick.bg',
-      }
-    ];
-  }
 
   appsFill(id: number) {
     this.router.navigate(['/dashboard', id]);
@@ -47,7 +24,8 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.companyFill();
+    let response = this.http.get("http://localhost:8080/findDashboardApps");
+    response.subscribe((res)=> this.data= res);
   }
 
 }

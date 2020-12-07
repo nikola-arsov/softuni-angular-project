@@ -12,6 +12,8 @@ import {PricingPacketsComponent} from './pricing-packets/pricing-packets.compone
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {LoginComponent} from './login/login.component';
 import {DashboardAppsComponent} from './dashboard-apps/dashboard-apps.component';
+import { ContactsComponent } from './contacts/contacts.component';
+
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import {DashboardAppsComponent} from './dashboard-apps/dashboard-apps.component'
     DashboardComponent,
     LoginComponent,
     DashboardAppsComponent,
+    ContactsComponent
   ],
   imports: [
     BrowserModule,

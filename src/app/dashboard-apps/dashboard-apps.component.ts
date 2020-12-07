@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard-apps',
@@ -8,80 +9,18 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class DashboardAppsComponent implements OnInit {
 
-  data: Array<any>;
-  id: number;
+  
+  data:any;
+  id: String;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private http: HttpClient) {
   }
 
-
-  appsFill() {
-    this.data = [
-      {
-        id: 1,
-        name: 'Компания 1',
-        apps:
-          [
-            {
-              id: 1,
-              name: 'Склад',
-              expire: '12/07/2015',
-              start: '12/07/2014',
-              users: '5/10',
-              sales: '176/200',
-              products: '81/100',
-            },
-            {
-              id: 2,
-              name: 'CRM',
-              expire: '12/07/2015',
-              start: '12/07/2014',
-              users: '5/10',
-              sales: '176/200',
-              products: '81/100',
-            },
-            {
-              id: 3,
-              name: 'ERP',
-              expire: '12/07/2015',
-              start: '12/07/2014',
-              users: '5/10',
-              sales: '176/200',
-              products: '81/100',
-            }
-          ]
-      },
-      {
-        id: 2,
-        name: 'Компания 2',
-        apps:
-          [
-            {
-              id: 1,
-              name: 'Склад',
-              expire: '12/07/2015',
-              start: '12/07/2014',
-              users: '5/10',
-              sales: '176/200',
-              products: '81/100',
-            },
-            {
-              id: 2,
-              name: 'CRM',
-              expire: '12/07/2015',
-              start: '12/07/2014',
-              users: '5/10',
-              sales: '176/200',
-              products: '81/100',
-            }
-          ]
-      }
-    ];
-  }
 
   ngOnInit(): void {
-    this.appsFill();
-    this.id = +this.route.snapshot.paramMap.get('id');
+    let response = this.http.get("http://localhost:8080/findCompanies");
+    response.subscribe((res)=> this.data = res);
+    this.id = this.route.snapshot.paramMap.get('id');
   }
 
 }

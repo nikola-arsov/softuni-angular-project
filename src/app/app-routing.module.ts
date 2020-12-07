@@ -6,6 +6,7 @@ import {PricingPacketsComponent} from './pricing-packets/pricing-packets.compone
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {LoginComponent} from './login/login.component';
 import {DashboardAppsComponent} from './dashboard-apps/dashboard-apps.component';
+import { ContactsComponent } from './contacts/contacts.component';
 
 const routes: Routes = [
   {
@@ -60,6 +61,13 @@ const routes: Routes = [
     component: LoginComponent,
     data: {
       title: 'LOGIN'
+    }
+  },
+  {
+    path: 'contacts',
+    component: ContactsComponent,
+    data:{
+      title: 'CONTACTS'
     }
   }
 ];
