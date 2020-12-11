@@ -32,7 +32,8 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-4 col-lg-offset-4" data-ng-module="userStatus">
-        <form name="form" [formGroup]="form" autocomplete="off" submitted="submitted" submit="submit()">
+        <form #loginForm="ngForm" name="form" [formGroup]="form" autocomplete="off" (ngSubmit) = "loginUser()">
+          <small class = "text-danger">{{msg}}</small>
           <div class="panel panel-default box-shadow">
             <div class="panel-heading">
               <h3 class="panel-title">
@@ -46,10 +47,9 @@
                   <input formControlName="email"
                          type="email"
                          class="form-control loginEmail"
-                         id="email"
                          name="email"
+                         [(ngModel)] = "user.emailId"
                          placeholder="Имейл"
-                         ng-model="email"
                          ng-model-options="{updateOn: 'blur'}"
                          required>
 
@@ -72,10 +72,9 @@
                 <input formControlName="password"
                        type="password"
                        class="form-control loginPassword"
-                       id="password"
                        name="password"
                        placeholder="Парола"
-                       ng-model="password"
+                       [(ngModel)] = "user.password"
                        required>
 
                 <div *ngIf="form.get('password').touched && form.get('password').errors?.required" class="error">
@@ -90,7 +89,7 @@
 
               </div>
               <div class="clear20"></div>
-              <a routerLink="/dashboard" class="btn btn-default btn-block">Вход</a>
+              <button type="submit"class="btn btn-default btn-block">Вход</button>
               <div class="clear20"></div>
             </div>
           </div>

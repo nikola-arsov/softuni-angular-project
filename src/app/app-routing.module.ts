@@ -8,6 +8,7 @@ import {LoginComponent} from './login/login.component';
 import {DashboardAppsComponent} from './dashboard-apps/dashboard-apps.component';
 import { ContactsComponent } from './contacts/contacts.component';
 
+
 const routes: Routes = [
   {
     path: '',

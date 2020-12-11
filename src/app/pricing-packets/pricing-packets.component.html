@@ -37,7 +37,7 @@
 <div class="container">
   <div class="row pricing">
     <div class="col-xs-12 col-md-7">
-      <form [formGroup]="form" (ngSubmit)="registerUser()">
+      <form  #registerForm = "ngForm" name = "form"[formGroup]="form" (ngSubmit)="registerUser()">
         <fieldset>
           <div id="legend">
             <legend class="">Създайте вашия акаунт</legend>
@@ -49,6 +49,7 @@
                    name="uEmail"
                    placeholder="Имейл"
                    type="email"
+                   [(ngModel)] = "user.emailId"
             />
 
 
@@ -66,6 +67,34 @@
             </div>
           </div>
 
+
+
+
+          <div class="control-group has-feedback">
+            <label class="control-label" for="username">Потребителско име</label>
+            <input class="form-control" formControlName="username"
+                   id="username"
+                   name="uName"
+                   placeholder="Потребителско име"
+                   type="text"
+                   [(ngModel)] = "user.username"
+            />
+
+
+            <div *ngIf="form.get('username').touched && form.get('username').errors?.required" class="error">
+              Потребителското име е задължителено
+            </div>
+            <div *ngIf="form.get('username').touched && form.get('username').errors?.minlength" class="error">
+              Потребителското име трябва да е по-дълъго от 6 символа
+            </div>
+            <div *ngIf="form.get('username').touched && form.get('username').errors?.maxlength" class="error">
+              Потребителското име не може да надвишава 30 символа
+            </div>
+            
+          </div>
+
+
+
           <!-- Първа парола -->
           <div class="control-group has-feedback" [formGroup]="form.get('passwords')">
             <label class="control-label" for="password1">Парола</label>
@@ -74,6 +103,7 @@
                    name="uPassword"
                    placeholder="Парола"
                    type="password"
+                   [(ngModel)] = "user.password"
             />
 
 
@@ -124,14 +154,13 @@
                 type="submit"
                 value="Създаване на акаунт"
                 class="btn btn-info btn-lg"
-                ng-click="update(user)"
-                routerLink="/login"
               />
             </div>
           </div>
         </fieldset>
       </form>
     </div>
+
     <div class="col-xs-12 col-md-4 pull-right" *ngFor="let item of data">
       <div *ngIf="item.id === id">
         <div class="panel {{ item.style }}">
