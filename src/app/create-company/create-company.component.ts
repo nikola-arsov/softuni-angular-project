@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { RegistrationService } from '../registration.service';
+import {Router} from '@angular/router';
+import { Firm } from '../firm';
 
 
 @Component({
@@ -10,8 +13,10 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class CreateCompanyComponent implements OnInit {
 
   form: FormGroup;
+  firm = new Firm();
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private _service: RegistrationService,
+    private _router: Router) {
     this.form = this.fb.group({
 
       name: ['Elegance', [Validators.required, Validators.minLength(4), Validators.maxLength(50)], []],
@@ -29,7 +34,15 @@ export class CreateCompanyComponent implements OnInit {
 
 
   registerCompanyHandler() {
-
+    this._service.registerFirmFromRemote(this.firm).subscribe(
+      data => {
+        console.log("response recieved");
+        this._router.navigate(['/dashboard'])
+      },
+      error => {
+        console.log("exeption occured");
+      }
+    )
   }
 
   reset() {

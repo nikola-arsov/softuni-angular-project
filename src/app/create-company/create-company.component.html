@@ -65,7 +65,7 @@
       <div class="clear20"></div>
       <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
-          <form [formGroup]="form" (ngSubmit)="registerCompanyHandler()">
+          <form #firmForm = "ngForm"  name = "form" [formGroup]="form" (ngSubmit)="registerCompanyHandler()">
             <div class="form-group has-feedback">
               <label class="control-label" for="name">Име на компанията:</label>
               <input formControlName="name"
@@ -73,6 +73,7 @@
                      placeholder="Име на компанията"
                      name="cName"
                      id="name"
+                     [(ngModel)] = "firm.name"
               />
 
               <div *ngIf="form.get('name').touched && form.get('name').errors?.required" class="error">
@@ -93,6 +94,7 @@
                      placeholder="ЕИК"
                      name="cEIK"
                      id="EIK"
+                     [(ngModel)] = "firm.eik"
               />
 
 
@@ -100,7 +102,7 @@
                 ЕИК е задължителен.
               </div>
               <div *ngIf="form.get('EIK').touched && form.get('EIK').errors?.minlength" class="error">
-                ЕИК трябва да е по-дълъг от 6 символа.
+                ЕИК трябва да е по-дълъг от 13 символа.
               </div>
               <div *ngIf="form.get('EIK').touched && form.get('EIK').errors?.maxlength" class="error">
                 ЕИК не може да надвишава 15 символа.
@@ -115,6 +117,7 @@
                      placeholder="ДДС номер"
                      name="cDDS"
                      id="DDS"
+                     [(ngModel)] = "firm.dds"
               />
 
               <div *ngIf="form.get('DDS').touched && form.get('DDS').errors?.required" class="error">
@@ -136,6 +139,7 @@
                      placeholder="Град"
                      name="cCity"
                      id="city"
+                     [(ngModel)] = "firm.city"
               />
 
               <div *ngIf="form.get('city').touched && form.get('city').errors?.required" class="error">
@@ -157,6 +161,7 @@
                      placeholder="Адрес"
                      name="cAddress"
                      id="address"
+                     [(ngModel)] = "firm.address"
               />
 
               <div *ngIf="form.get('address').touched && form.get('address').errors?.required" class="error">
@@ -174,6 +179,7 @@
                      placeholder="МОЛ"
                      name="cMOL"
                      id="MOL"
+                     [(ngModel)] = "firm.mol"
               />
 
               <div *ngIf="form.get('MOL').touched && form.get('MOL').errors?.required" class="error">
@@ -194,6 +200,7 @@
                      placeholder="Имейл адрес"
                      name="cEmail"
                      id="email"
+                     [(ngModel)] = "firm.emailId"
               />
 
               <div *ngIf="form.get('email').touched && form.get('email').errors?.required" class="error">

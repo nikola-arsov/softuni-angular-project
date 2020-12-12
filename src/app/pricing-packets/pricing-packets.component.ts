@@ -31,8 +31,8 @@ export class PricingPacketsComponent implements OnInit {
       email: ['test@email.bg', [Validators.required, Validators.email, Validators.minLength(6), Validators.maxLength(50)], []],
       username: ['arsov', [Validators.required, Validators.minLength(4), Validators.maxLength(30)], []],
       passwords: this.fb.group({
-        password1: ['test-password', [Validators.required, Validators.minLength(6), Validators.maxLength(50)], []],
-        password2: ['test-password', [Validators.required], []],
+        password1: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(50)], []],
+        password2: ['', [Validators.required], []],
       }, {validator: this.checkPasswords})
     });
   }
